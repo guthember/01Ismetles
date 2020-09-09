@@ -15,7 +15,7 @@ namespace _01Ismetles
 
             int gepValasz = vel.Next(0, 3 );
 
-            Console.WriteLine("Gép választása: {0}", lehetoseg[gepValasz]);
+            // Console.WriteLine("Gép választása: {0}", lehetoseg[gepValasz]);
 
             int jatekosValasz;
 
@@ -24,7 +24,24 @@ namespace _01Ismetles
             jatekosValasz = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosValasz]);
 
-
+            if ( jatekosValasz == gepValasz ) // Döntetlen
+            {
+                Console.WriteLine("Döntetlen!");
+            }
+            else if (
+                        (jatekosValasz == 0 && gepValasz == 1)
+                        ||
+                        (jatekosValasz == 1 && gepValasz == 2)
+                        ||
+                        (jatekosValasz == 2 && gepValasz == 0)
+                    ) // Gép nyer
+            {
+                Console.WriteLine("Gép nyert!");
+            }
+            else // Játékos nyer
+            {
+                Console.WriteLine("Játékos te nyertél!");
+            }
 
             Console.ReadKey();
         }
