@@ -8,6 +8,29 @@ namespace _01Ismetles
 {
     class Program
     {
+
+        static int EmberNyer(int gep, int ember)
+        {
+            if (ember == gep) // Döntetlen
+            {
+                return 0;
+            }
+            else if (
+                        (ember == 0 && gep == 1)
+                        ||
+                        (ember == 1 && gep == 2)
+                        ||
+                        (ember == 2 && gep == 0)
+                    ) // Gép nyer
+            {
+                return 1;
+            }
+            else // Játékos nyer
+            {
+                return 2;
+            }
+        }
+
         static void Main()
         {
             Random vel = new Random();
@@ -15,32 +38,27 @@ namespace _01Ismetles
 
             int gepValasz = vel.Next(0, 3 );
 
-            // Console.WriteLine("Gép választása: {0}", lehetoseg[gepValasz]);
-
             int jatekosValasz;
 
             Console.WriteLine("Kő (0), Papír (1), Olló (2)");
             Console.Write("Válassz: ");
             jatekosValasz = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosValasz]);
 
-            if ( jatekosValasz == gepValasz ) // Döntetlen
+            Console.WriteLine("Gép: {0} --- Játékos: {1}",
+                                lehetoseg[gepValasz], lehetoseg[jatekosValasz]
+                    );
+            
+            switch (EmberNyer(gepValasz, jatekosValasz))
             {
-                Console.WriteLine("Döntetlen!");
-            }
-            else if (
-                        (jatekosValasz == 0 && gepValasz == 1)
-                        ||
-                        (jatekosValasz == 1 && gepValasz == 2)
-                        ||
-                        (jatekosValasz == 2 && gepValasz == 0)
-                    ) // Gép nyer
-            {
-                Console.WriteLine("Gép nyert!");
-            }
-            else // Játékos nyer
-            {
-                Console.WriteLine("Játékos te nyertél!");
+                case 0:
+                    Console.WriteLine("Döntetlen!");
+                    break;
+                case 1:
+                    Console.WriteLine("Skynet nyert!");
+                    break;
+                case 2:
+                    Console.WriteLine("Játékos nyert!");
+                    break;
             }
 
             Console.ReadKey();
