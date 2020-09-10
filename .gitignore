@@ -14,7 +14,9 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
+#[Dd]ebug/*.exe
+#[Dd]ebug/*.config
+#[Dd]ebug/*.pdb
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
@@ -23,7 +25,7 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
+#[Bb]in/
 [Oo]bj/
 [Ll]og/
 
@@ -60,6 +62,9 @@ artifacts/
 StyleCopReport.xml
 
 # Files built by Visual Studio
+*.exe
+*.config
+*.pdb
 *_i.c
 *_p.c
 *_h.h
