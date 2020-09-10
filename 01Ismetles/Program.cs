@@ -110,8 +110,14 @@ namespace _01Ismetles
 
             StatisztikaKiiras();
 
+            StatisztikaFajlba();
 
             Console.ReadKey();
+        }
+
+        private static void StatisztikaFajlba()
+        {
+
         }
 
         private static void StatisztikaFajlbol()
@@ -121,9 +127,11 @@ namespace _01Ismetles
             {
                 string[] szovegAdat = stat.ReadLine().Split(';');
                 int[] adat = new int[3];
-                adat[0] = int.Parse(szovegAdat[0]);
-                adat[1] = int.Parse(szovegAdat[1]);
-                adat[2] = int.Parse(szovegAdat[2]);
+
+                for (int i = 0; i < adat.Length; i++)
+                {
+                    adat[i] = int.Parse(szovegAdat[i]);
+                }
 
                 Console.WriteLine("{0} {1} {2}",adat[0],adat[1],adat[2]);
             }
