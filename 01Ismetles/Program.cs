@@ -45,9 +45,9 @@ namespace _01Ismetles
 
         static int EmberNyer(int gep, int ember)
         {
-            if (ember == gep) // Döntetlen
+            if (ember == gep) 
             {
-                return 0;
+                return 0; // Döntetlen
             }
             else if (
                         (ember == 0 && gep == 1)
@@ -55,13 +55,13 @@ namespace _01Ismetles
                         (ember == 1 && gep == 2)
                         ||
                         (ember == 2 && gep == 0)
-                    ) // Gép nyer
+                    ) 
             {
-                return 1;
+                return 1; // Gép nyer
             }
-            else // Játékos nyer
+            else 
             {
-                return 2;
+                return 2; // Játékos nyer
             }
         }
 
