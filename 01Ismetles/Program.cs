@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace _01Ismetles
 {
@@ -90,6 +91,8 @@ namespace _01Ismetles
 
         static void Main()
         {
+            StatisztikaFajlbol();
+
             bool tovabb = true;
 
             while (tovabb)
@@ -109,6 +112,25 @@ namespace _01Ismetles
 
 
             Console.ReadKey();
+        }
+
+        private static void StatisztikaFajlbol()
+        {
+            StreamReader stat = new StreamReader("statisztika.txt");
+            while (!stat.EndOfStream)
+            {
+                string[] szovegAdat = stat.ReadLine().Split(';');
+                int[] adat = new int[3];
+                adat[0] = int.Parse(szovegAdat[0]);
+                adat[1] = int.Parse(szovegAdat[1]);
+                adat[2] = int.Parse(szovegAdat[2]);
+
+                Console.WriteLine("{0} {1} {2}",adat[0],adat[1],adat[2]);
+            }
+
+            stat.Close();
+
+            Console.WriteLine("----------->Statisztika vége<-----------");
         }
 
         private static void StatisztikaKiiras()

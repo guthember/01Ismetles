@@ -26,3 +26,9 @@ majd képek
 
 [x] Statisztika megvalósítás
 	- gép, játékos, mennyi menet
+
+[] Eredmények fájlba írása és megjelenítése
+	- 1. érték -> menet
+	- 2. érték -> Játékos
+	- 3. érték -> Gép
+	- értékek ';'-vel elválasztva
