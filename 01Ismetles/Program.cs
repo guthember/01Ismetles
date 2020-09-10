@@ -117,12 +117,21 @@ namespace _01Ismetles
 
         private static void StatisztikaFajlba()
         {
-
+            string adat = menet.ToString()+";"+
+                            jatekosNyer.ToString()+";"+
+                            gepNyer.ToString();
+            FileStream ki = new FileStream("statisztika.txt", FileMode.Append);
+            StreamWriter sKi = new StreamWriter(ki);
+            sKi.WriteLine(adat);
+            sKi.Close();
         }
 
         private static void StatisztikaFajlbol()
         {
             StreamReader stat = new StreamReader("statisztika.txt");
+            Console.WriteLine("---->  Statisztika   <-----");
+            Console.WriteLine("| Menet | Játékos |  Gép  |");
+            Console.WriteLine("---------------------------");
             while (!stat.EndOfStream)
             {
                 string[] szovegAdat = stat.ReadLine().Split(';');
@@ -132,13 +141,16 @@ namespace _01Ismetles
                 {
                     adat[i] = int.Parse(szovegAdat[i]);
                 }
-
-                Console.WriteLine("{0} {1} {2}",adat[0],adat[1],adat[2]);
+                Console.WriteLine("|    {0,2} |     {1,2}  |    {2,2} |", adat[0],adat[1],adat[2]);
+                Console.WriteLine("---------------------------");  
             }
 
             stat.Close();
 
-            Console.WriteLine("----------->Statisztika vége<-----------");
+            Console.WriteLine("---->Statisztika vége<-----");
+            Console.WriteLine("\nBármilyen billentyűre tovább...");
+            Console.ReadKey(true);
+            Console.Clear();
         }
 
         private static void StatisztikaKiiras()
