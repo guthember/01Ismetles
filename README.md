@@ -22,4 +22,7 @@
 majd képek
 
 ## Játékmenet 2.0
-[] Addig játszunk amíg ki nem lépünk a játékból
+[x] Addig játszunk amíg ki nem lépünk a játékból
+
+[x] Statisztika megvalósítás
+	- gép, játékos, mennyi menet
