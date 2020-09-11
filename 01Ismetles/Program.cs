@@ -89,39 +89,14 @@ namespace _01Ismetles
             }
         }
 
-        static void Main()
-        {
-            StatisztikaFajlbol();
-
-            bool tovabb = true;
-
-            while (tovabb)
-            {
-                menet++;
-
-                int gepValasz = GepValasztas();
-
-                int jatekosValasz = JatekosValasztas();
-
-                EredmenyKiiras(gepValasz, jatekosValasz);
-
-                tovabb = AkarJatszani();
-            }
-
-            StatisztikaKiiras();
-
-            StatisztikaFajlba();
-
-            Console.ReadKey();
-        }
 
         private static void StatisztikaFajlba()
         {
-            string adat = menet.ToString()+";"+
-                            jatekosNyer.ToString()+";"+
+            string adat = menet.ToString() + ";" +
+                            jatekosNyer.ToString() + ";" +
                             gepNyer.ToString();
-            FileStream ki = new FileStream("statisztika.txt", FileMode.Append);
-            StreamWriter sKi = new StreamWriter(ki);
+            //FileStream ki = new FileStream("statisztika.txt", FileMode.Append);
+            StreamWriter sKi = new StreamWriter("statisztika.txt", true);
             sKi.WriteLine(adat);
             sKi.Close();
         }
@@ -141,8 +116,9 @@ namespace _01Ismetles
                 {
                     adat[i] = int.Parse(szovegAdat[i]);
                 }
-                Console.WriteLine("|    {0,2} |     {1,2}  |    {2,2} |", adat[0],adat[1],adat[2]);
-                Console.WriteLine("---------------------------");  
+                Console.WriteLine("|    {0,2} |     {1,2}  |    {2,2} |",
+                    adat[0], adat[1], adat[2]);
+                Console.WriteLine("---------------------------");
             }
 
             stat.Close();
@@ -157,7 +133,27 @@ namespace _01Ismetles
         {
             Console.WriteLine(" Menetek száma: {0}" +
                 "\tJátékos győzelmémek száma: {1}" +
-                "\tGép győzelmének száma: {2}",menet, jatekosNyer, gepNyer);
+                "\tGép győzelmének száma: {2}", menet, jatekosNyer, gepNyer);
         }
+
+        static void Main()
+        {
+            StatisztikaFajlbol();
+
+            bool tovabb = true;
+            while (tovabb)
+            {
+                menet++;
+                int gepValasz = GepValasztas();
+                int jatekosValasz = JatekosValasztas();
+                EredmenyKiiras(gepValasz, jatekosValasz);
+                tovabb = AkarJatszani();
+            }
+
+            StatisztikaKiiras();
+            StatisztikaFajlba();
+            Console.ReadKey();
+        }
+
     }
 }
